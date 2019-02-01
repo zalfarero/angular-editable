@@ -1,0 +1,33 @@
+<mat-sidenav-container class="sidenav-container" autosize>
+  <mat-sidenav #drawer class="sidenav" fixedInViewport="true"
+      [attr.role]="(isHandset$ | async) ? 'dialog' : 'navigation'"
+      [mode]="(isHandset$ | async) ? 'push' : 'side'"
+      [opened]="!(isHandset$ | async)">
+    <mat-toolbar>Company name</mat-toolbar>
+    <mat-nav-list>
+      <a mat-list-item href="#">Link 1</a>
+      <a mat-list-item href="#">Link 2</a>
+      <a mat-list-item href="#">Link 3</a>
+      <app-tree></app-tree>
+    </mat-nav-list>
+  </mat-sidenav>
+  <mat-sidenav-content>
+    <mat-toolbar color="primary">
+      <button
+        type="button"
+        aria-label="Toggle sidenav"
+        mat-icon-button
+        (click)="drawer.toggle()"
+        >
+        <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
+
+
+      </button>
+      &nbsp;&nbsp;
+      <span>Put bread crumbs here or below here</span>
+      <!--<span>newUI</span>-->
+    </mat-toolbar>
+    <!-- Add Content Here -->
+    <app-main-table></app-main-table>
+  </mat-sidenav-content>
+</mat-sidenav-container>
